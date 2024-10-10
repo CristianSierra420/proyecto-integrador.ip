@@ -1,135 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Control</title>
-    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+    <title>Trabajo integrador</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="sidebar">
+    <h1>hollaaaaaaaa</h1>
+    <div class="login-container">
         <h2>Panel de Control</h2>
-        <button onclick="mostrarSeccion('capturaHoras')">Captura de Horas</button>
-        <button onclick="mostrarSeccion('supervisores')">Panel para Supervisores</button>
-        <button onclick="mostrarSeccion('reportes')">Generación de Reportes</button>
-        <button onclick="mostrarSeccion('alertas')">Alertas por Inconsistencias</button>
-        <button onclick="mostrarSeccion('historial')">Historial de Registros</button>
-        <button onclick="mostrarSeccion('configuracion')">Configuración</button>
-        <button onclick="mostrarSeccion('integracion')">Integración</button>
+        <form action="/ruta/al/servidor" method="POST">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Iniciar Sesión</button>
+        </form>
     </div>
-
-    <div class="content">
-        <div id="capturaHoras" class="section active">
-            <h3>Captura de Horas de Ingreso y Salida</h3>
-            <input type="datetime-local" id="horaIngreso">
-            <input type="datetime-local" id="horaSalida">
-            <button onclick="registrarHoras()">Registrar Horas</button>
-            <div id="mensajeHoras"></div>
-        </div>
-
-        <div id="supervisores" class="section">
-            <h3>Panel para Supervisores</h3>
-            <p>Aquí puedes gestionar y supervisar el trabajo de los empleados.</p>
-            <button onclick="verSupervisores()">Ver Supervisores</button>
-            <div id="mensajeSupervisores"></div>
-        </div>
-
-        <div id="reportes" class="section">
-            <h3>Generación de Reportes Detallados</h3>
-            <button onclick="generarReporte()">Generar Reporte</button>
-            <div id="mensajeReporte"></div>
-        </div>
-
-        <div id="alertas" class="section">
-            <h3>Alertas para Inconsistencias</h3>
-            <button onclick="verAlertas()">Ver Alertas</button>
-            <div id="mensajeAlertas"></div>
-        </div>
-
-        <div id="historial" class="section">
-            <h3>Historial de Registros</h3>
-            <button onclick="verHistorial()">Ver Historial</button>
-            <div id="mensajeHistorial"></div>
-        </div>
-
-        <div id="configuracion" class="section">
-            <h3>Configuración de Parámetros de Trabajo</h3>
-            <button onclick="configurarParametros()">Configurar</button>
-            <div id="mensajeConfiguracion"></div>
-        </div>
-
-        <div id="integracion" class="section">
-            <h3>Integración con Sistemas Externos</h3>
-            <p>Configuraciones para integrar con otros sistemas.</p>
-        </div>
-    </div>
-
-    <script>
-        let registros = []; // Arreglo para almacenar registros de horas
-        let alertas = []; // Arreglo para almacenar alertas
-
-        function mostrarSeccion(seccion) {
-            const secciones = ['capturaHoras', 'supervisores', 'reportes', 'alertas', 'historial', 'configuracion', 'integracion'];
-            secciones.forEach(id => {
-                document.getElementById(id).classList.remove('active');
-            });
-            document.getElementById(seccion).classList.add('active');
-        }
-
-        function registrarHoras() {
-            const horaIngreso = document.getElementById('horaIngreso').value;
-            const horaSalida = document.getElementById('horaSalida').value;
-
-            if (!horaIngreso || !horaSalida) {
-                document.getElementById('mensajeHoras').innerText = 'Por favor, complete ambas horas.';
-                return;
-            }
-
-            registros.push({ ingreso: horaIngreso, salida: horaSalida });
-            document.getElementById('mensajeHoras').innerText = `Horas registradas: Ingreso - ${horaIngreso}, Salida - ${horaSalida}`;
-            document.getElementById('horaIngreso').value = '';
-            document.getElementById('horaSalida').value = '';
-        }
-
-        function generarReporte() {
-            if (registros.length === 0) {
-                document.getElementById('mensajeReporte').innerText = 'No hay registros para generar un reporte.';
-                return;
-            }
-            const reporte = `Reporte generado:\n${registros.map((r, i) => `Registro ${i + 1}: Ingreso - ${r.ingreso}, Salida - ${r.salida}`).join('\n')}`;
-            document.getElementById('mensajeReporte').innerText = 'Reporte generado. Revisa la consola para detalles.';
-            console.log(reporte);
-        }
-
-        function verAlertas() {
-            if (alertas.length === 0) {
-                document.getElementById('mensajeAlertas').innerText = 'No hay alertas registradas.';
-                return;
-            }
-            document.getElementById('mensajeAlertas').innerText = `Alertas: ${alertas.join(', ')}`;
-        }
-
-        function verSupervisores() {
-            const supervisores = ['Supervisor 1', 'Supervisor 2', 'Supervisor 3']; // Ejemplo de supervisores
-            document.getElementById('mensajeSupervisores').innerText = `Supervisores disponibles: ${supervisores.join(', ')}`;
-        }
-
-        function verHistorial() {
-            if (registros.length === 0) {
-                document.getElementById('mensajeHistorial').innerText = 'No hay registros en el historial.';
-                return;
-            }
-            const historialTexto = `Historial:\n${registros.map((r, i) => `Registro ${i + 1}: Ingreso - ${r.ingreso}, Salida - ${r.salida}`).join('\n')}`;
-            document.getElementById('mensajeHistorial').innerText = 'Historial mostrado en consola.';
-            console.log(historialTexto);
-        }
-
-        function configurarParametros() {
-            // Lógica para configuración de parámetros (simulada)
-            document.getElementById('mensajeConfiguracion').innerText = 'Parámetros configurados correctamente.';
-        }
-    </script>
-
 </body>
 </html>

@@ -1,48 +1,44 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Control</title>
-    <link href="panel de control.css" rel="stylesheet">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Panel de Control</title> <!-- Título de la página -->
+    <link href="panel de control.css" rel="stylesheet"> <!-- Link del css -->
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2>Panel de Control</h2>
-        <button onclick="document.getElementById('capturaHoras').classList.toggle('active');">Captura de Horas</button>
-        <button onclick="document.getElementById('reportes').classList.toggle('active');">Generación de Reportes</button>
-        <button onclick="document.getElementById('alertas').classList.toggle('active');">Alertas por Inconsistencias</button>
-        <button onclick="document.getElementById('historial').classList.toggle('active');">Historial de Registros</button>
+    <div class="sidebar"> 
+        <h2>Panel de Control</h2> <!-- Título de la barra lateral -->
+        <button onclick="document.getElementById('capturaHoras').classList.toggle('active');">Captura de Horas</button> <!-- Botón para ver la sección de Captura de Horas -->
+        <button onclick="document.getElementById('reportes').classList.toggle('active');">Generación de Reportes</button> <!-- Botón para ver la sección de Reportes -->
+        <button onclick="document.getElementById('alertas').classList.toggle('active');">Alertas por Inconsistencias</button> <!-- Botón para ver la sección de Alertas -->
+        <button onclick="document.getElementById('historial').classList.toggle('active');">Historial de Registros</button> <!-- Botón para ver la sección de Historial -->
     </div>
 
-    <div class="content">
-        <div id="capturaHoras" class="section active">
-            <h3>Captura de Horas de Ingreso y Salida</h3>
-            <label for="horaIngreso">Hora de Ingreso:</label>
-            <input type="datetime-local" id="horaIngreso" disabled>
-            <label for="horaSalida">Hora de Salida:</label>
-            <input type="datetime-local" id="horaSalida" disabled>
-            <button class="register" disabled>Registrar Horas</button>
-           
+    <div class="content"> <!-- Contenido principal -->
+        <div id="capturaHoras" class="section active"> <!-- Sección de Captura de Horas, visible por defecto -->
+            <h3>Captura de Horas de Ingreso y Salida</h3> <!-- Título de la sección -->
+            <label for="horaIngreso">Hora de Ingreso:</label> <!-- Etiqueta para el campo de hora de ingreso -->
+            <input type="datetime-local" id="horaIngreso" disabled> <!-- Campo para hora de ingreso, deshabilitado -->
+            <label for="horaSalida">Hora de Salida:</label> <!-- Etiqueta para el campo de hora de salida -->
+            <input type="datetime-local" id="horaSalida" disabled> <!-- Campo para hora de salida, deshabilitado -->
+            <button class="register" disabled>Registrar Horas</button> <!-- Botón para registrar horas, deshabilitado -->
         </div>
 
-        <div id="reportes" class="section">
-            <h3>Generación de Reportes Detallados</h3>
-            <button class="register" disabled>Generar Reporte</button>
-            
+        <div id="reportes" class="section"> <!-- Sección de Reportes -->
+            <h3>Generación de Reportes Detallados</h3> <!-- Título de la sección -->
+            <button class="register" disabled>Generar Reporte</button> <!-- Botón para generar reportes, deshabilitado -->
         </div>
 
-        <div id="alertas" class="section">
-            <h3>Alertas para Inconsistencias</h3>
-            <button class="register" disabled>Ver Alertas</button>
-            
+        <div id="alertas" class="section"> <!-- Sección de Alertas -->
+            <h3>Alertas para Inconsistencias</h3> <!-- Título de la sección -->
+            <button class="register" disabled>Ver Alertas</button> <!-- Botón para ver alertas, deshabilitado -->
         </div>
 
-        <div id="historial" class="section">
-            <h3>Historial de Registros</h3>
-            <button class="register" disabled>Ver Historial</button>
-            
+        <div id="historial" class="section"> <!-- Sección de Historial -->
+            <h3>Historial de Registros</h3> <!-- Título de la sección -->
+            <button class="register" disabled>Ver Historial</button> <!-- Botón para ver historial, deshabilitado -->
         </div>
     </div>
 

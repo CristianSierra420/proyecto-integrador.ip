@@ -49,10 +49,34 @@ body {
 h3 {
     margin-top: 0;
 }
-#mensaje {
-    margin-top: 20px;
+label {
+    font-size: 18px;
+    margin-top: 15px;
+    display: block;
+}
+input[type="datetime-local"] {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #bdc3c7;
+    font-size: 16px;
+    margin-top: 5px;
+}
+button.register {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
     border-radius: 5px;
-    background-color: #dfe6e9;
+    transition: background-color 0.3s;
+}
+button.register:hover {
+    background: #218838;
+}
+#mensajeHoras {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #e74c3c;
 }

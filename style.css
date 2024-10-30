@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000a9, #000000b7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,44 +9,62 @@ body {
 }
 
 .login-container {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background: linear-gradient(135deg, #dfdfdf, #ff0000);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     width: 300px;
+    text-align: center;
 }
 
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    color: #333;
+    
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border: 1px solid #007BFF;
+    outline: none;
 }
 
 button {
-    flex: 1;
-    padding: 10px;
-    background-color: #007bff;
+    width: 100%;
+    padding: 12px;
+    background-color: hwb(257 18% 75% / 0.356);
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
-    margin: 0 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 .footer {
-    margin-top: 20px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
 }
 
 .footer a {
-    color: #007bff;
+color: hwb(0 0% 100%);
     text-decoration: none;
 }

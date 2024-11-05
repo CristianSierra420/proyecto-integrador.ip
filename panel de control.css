@@ -3,116 +3,183 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #bebab4; /* Fondo blanco muy suave */
+    background-color: #bebab4;
+    display: flex;
+    height: 100vh;
 }
 
-/* Barra lateral */
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    flex: 1;
+    padding: 20px; /* Espacio alrededor del contenedor */
+}
+
+/* Barra lateral más grande */
 .sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #22232a; /* Gris oscuro */
+    width: 250px; /* Ancho del panel incrementado */
+    background-color: #22232a;
     color: white;
     height: 100%;
-    padding-top: 30px;
-    padding-left: 10px;
+    padding: 20px 15px; /* Espacio interno ajustado */
     box-sizing: border-box;
-    transition: all 0.3s ease;
+    border-radius: 10px; /* Esquinas redondeadas */
+    margin-right: 30px; /* Espacio a la derecha incrementado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el recuadro */
+}
+
+.admin-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px; /* Menos espacio */
+    justify-content: center;
+}
+
+.admin-icon i {
+    font-size: 54px; /* Icono más pequeño */
+    margin-right: 10px;
+}
+
+.admin-icon span {
+    font-size: 18px; /* Texto más pequeño */
+    font-weight: bold;
 }
 
 .sidebar h2 {
     text-align: center;
-    color: #f7f7f6; /* Texto claro */
-    margin-bottom: 30px;
-    font-size: 24px;
+    color: #f7f7f6;
+    margin-bottom: 20px;
+    font-size: 20px; /* Título más pequeño */
 }
 
-/* Estilo de los botones de la barra lateral */
 .sidebar button {
-    background-color: #46413b; /* Gris claro */
+    background-color: #46413b;
     color: white;
     border: none;
-    padding: 12px;
-    margin: 10px 0;
+    padding: 10px 10px; /* Botones más pequeños */
+    margin: 8px 0;
     width: 100%;
     text-align: left;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px; /* Letra más pequeña */
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     transition: background-color 0.3s ease;
 }
 
 .sidebar button:hover {
-    background-color: #020104; /* Color oscuro en hover */
+    background-color: #020104;
 }
 
-/* Estilo del contenido */
+.back-button {
+    background-color: #46413b;
+    color: white;
+    padding: 10px 10px;
+    margin: 8px 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #020104;
+}
+
+/* Contenido principal */
 .content {
-    margin-left: 260px; /* Ancho de la barra lateral */
+    flex-grow: 1;
     padding: 20px;
-    transition: margin-left 0.3s ease;
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    box-sizing: border-box;
+    display: flex; /* Cambiado a flex para que los elementos estén uno debajo del otro */
+    flex-direction: column; /* Coloca las secciones en una columna */
+    gap: 20px; /* Espacio entre secciones */
+    background-color: #f7f7f6; /* Color de fondo más claro */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el recuadro */
 }
 
-/* Secciones (Captura de horas, Historial, etc.) */
-.section {
-    display: none;
+/* Estilos para los recuadros de cada sección */
+.section-box {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #bebab4; /* Color de fondo de las secciones */
+    display: none; /* Inicialmente oculto */
 }
 
-.section.active {
-    display: block;
+.section-box.active {
+    display: block; /* Solo se muestra la sección activa */
 }
 
 h3 {
-    color: #020104; /* Color oscuro */
+    color: #020104;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
 /* Estilo para los campos de captura de hora */
-input[type="datetime-local"] {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    width: 250px;
-    border-radius: 5px;
-    border: 1px solid #46413b; /* Gris claro */
-    background-color: #f7f7f6; /* Fondo claro */
-    color: #020104; /* Texto oscuro */
+.hora-container {
+    display: flex; /* Habilita el uso de flexbox */
+    gap: 20px; /* Espacio entre los inputs */
 }
 
-/* Botón de registro (verde) */
+.hora-input {
+    display: flex;
+    flex-direction: column; /* Asegura que la etiqueta esté encima del input */
+    max-width: 200px; /* Puedes ajustar este tamaño según tus necesidades */
+}
+
+input[type="datetime-local"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #46413b;
+    background-color: #f7f7f6;
+    color: #020104;
+}
+
 .register {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     font-size: 18px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
     width: 100%;
-    margin-top: 10px;
+    max-width: 300px;
+    margin-top: 20px;
 }
 
 .register:hover {
-    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+    background-color: #45a049;
 }
 
-/* Mensaje de éxito */
 #mensajeExitoso {
     display: none;
     padding: 10px;
-    margin-top: 10px;
-    background-color: #4CAF50; /* Verde */
+    margin-top: 20px;
+    background-color: #4CAF50;
     color: white;
     border-radius: 5px;
     font-weight: bold;
+    max-width: 300px;
 }
 
 /* Estilo para la tabla de historial */
 .historial-table {
     width: 100%;
+    max-width: 600px;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -120,44 +187,25 @@ input[type="datetime-local"] {
 .historial-table th, .historial-table td {
     padding: 12px;
     text-align: center;
-    border: 1px solid #46413b; /* Gris claro */
+    border: 1px solid #46413b;
 }
 
 .historial-table th {
-    background-color: #46413b; /* Gris claro */
+    background-color: #46413b;
     color: white;
 }
 
 .historial-table tr:nth-child(even) {
-    background-color: #f7f7f6; /* Fondo blanco */
+    background-color: #f7f7f6;
 }
 
 .historial-table tr:nth-child(odd) {
-    background-color: #bebab4; /* Color suave para filas impares */
+    background-color: #bebab4;
 }
 
 .historial-table td {
     font-size: 16px;
-    color: #020104; /* Texto oscuro */
-}
-
-/* Estilo de los botones en la barra lateral */
-.sidebar button {
-    background-color: #46413b; /* Gris claro */
-    color: #fff;
-    padding: 15px;
-    margin: 10px 0;
-    text-align: left;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    transition: 0.3s;
-    border-radius: 5px;
-}
-
-.sidebar button:hover {
-    background-color: #020104; /* Color oscuro al pasar el mouse */
+    color: #020104;
 }
 
 

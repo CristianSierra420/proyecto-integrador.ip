@@ -1,46 +1,140 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Panel de Control</title> <!-- Título de la página -->
-    <link href="panel de control.css" rel="stylesheet"> <!-- Link del css -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="panel de control.css"> <!-- Link al archivo CSS externo -->
 </head>
 <body>
 
-    <div class="sidebar"> 
-        <h2>Panel de Control</h2> <!-- Título de la barra lateral -->
-        <button onclick="document.getElementById('capturaHoras').classList.toggle('active');">Captura de Horas</button> <!-- Botón para ver la sección de Captura de Horas -->
-        <button onclick="document.getElementById('reportes').classList.toggle('active');">Generación de Reportes</button> <!-- Botón para ver la sección de Reportes -->
-        <button onclick="document.getElementById('alertas').classList.toggle('active');">Alertas por Inconsistencias</button> <!-- Botón para ver la sección de Alertas -->
-        <button onclick="document.getElementById('historial').classList.toggle('active');">Historial de Registros</button> <!-- Botón para ver la sección de Historial -->
+    <div class="sidebar">
+        <h2>Panel de Control</h2>
+        <button onclick="toggleSection('capturaHoras')">Captura de Horas</button>
+        <button onclick="toggleSection('reportes')">Generación de Reportes</button>
+        <button onclick="toggleSection('alertas')">Alertas por Inconsistencias</button>
+        <button onclick="toggleSection('historial')">Historial de Registros</button>
     </div>
 
-    <div class="content"> <!-- Contenido principal -->
-        <div id="capturaHoras" class="section active"> <!-- Sección de Captura de Horas, visible por defecto -->
-            <h3>Captura de Horas de Ingreso y Salida</h3> <!-- Título de la sección -->
-            <label for="horaIngreso">Hora de Ingreso:</label> <!-- Etiqueta para el campo de hora de ingreso -->
-            <input type="datetime-local" id="horaIngreso" disabled> <!-- Campo para hora de ingreso, deshabilitado -->
-            <label for="horaSalida">Hora de Salida:</label> <!-- Etiqueta para el campo de hora de salida -->
-            <input type="datetime-local" id="horaSalida" disabled> <!-- Campo para hora de salida, deshabilitado -->
-            <button class="register" disabled>Registrar Horas</button> <!-- Botón para registrar horas, deshabilitado -->
+    <div class="content">
+        <!-- Sección de Captura de Horas -->
+        <div id="capturaHoras" class="section active">
+            <h3>Captura de Horas de Ingreso y Salida</h3>
+            <label for="horaIngreso">Hora de Ingreso:</label>
+            <input type="datetime-local" id="horaIngreso">
+            <label for="horaSalida">Hora de Salida:</label>
+            <input type="datetime-local" id="horaSalida">
+            <button class="register" onclick="registrarHoras()">Registrar Horas</button>
+
+            <!-- Mensaje de éxito -->
+            <div id="mensajeExitoso">Captura de hora exitosa</div>
         </div>
 
-        <div id="reportes" class="section"> <!-- Sección de Reportes -->
-            <h3>Generación de Reportes Detallados</h3> <!-- Título de la sección -->
-            <button class="register" disabled>Generar Reporte</button> <!-- Botón para generar reportes, deshabilitado -->
+        <!-- Sección de Reportes -->
+        <div id="reportes" class="section">
+            <h3>Generación de Reportes Detallados</h3>
+            <button class="register" disabled>Generar Reporte</button>
         </div>
 
-        <div id="alertas" class="section"> <!-- Sección de Alertas -->
-            <h3>Alertas para Inconsistencias</h3> <!-- Título de la sección -->
-            <button class="register" disabled>Ver Alertas</button> <!-- Botón para ver alertas, deshabilitado -->
+        <!-- Sección de Alertas -->
+        <div id="alertas" class="section">
+            <h3>Alertas para Inconsistencias</h3>
+            <button class="register" disabled>Ver Alertas</button>
         </div>
 
-        <div id="historial" class="section"> <!-- Sección de Historial -->
-            <h3>Historial de Registros</h3> <!-- Título de la sección -->
-            <button class="register" disabled>Ver Historial</button> <!-- Botón para ver historial, deshabilitado -->
+        <!-- Sección de Historial -->
+        <div id="historial" class="section">
+            <h3>Historial de Registros</h3>
+            <table id="historialLista" class="historial-table">
+                <thead>
+                    <tr>
+                        <th>Ingreso</th>
+                        <th>Salida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los registros se agregarán aquí dinámicamente -->
+                </tbody>
+            </table>
         </div>
     </div>
+
+    <script>
+        // Array para almacenar los registros de horas
+        let registros = [];
+
+        // Función para alternar visibilidad de las secciones
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Función para registrar las horas de ingreso y salida
+        function registrarHoras() {
+            const horaIngreso = document.getElementById('horaIngreso').value;
+            const horaSalida = document.getElementById('horaSalida').value;
+
+            if (horaIngreso && horaSalida) {
+                // Convertir las fechas a la hora de Colombia (UTC-5)
+                const opciones = { 
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
+                    hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'America/Bogota' 
+                };
+                const ingreso = new Date(horaIngreso).toLocaleString('es-CO', opciones);
+                const salida = new Date(horaSalida).toLocaleString('es-CO', opciones);
+
+                // Crear un objeto con las horas registradas
+                const registro = {
+                    ingreso: ingreso,
+                    salida: salida
+                };
+
+                // Almacenar el registro en el array
+                registros.push(registro);
+
+                // Limpiar los campos de hora
+                document.getElementById('horaIngreso').value = '';
+                document.getElementById('horaSalida').value = '';
+
+                // Mostrar el mensaje de éxito
+                mostrarMensajeExitoso();
+
+                // Mostrar el historial actualizado
+                mostrarHistorial();
+            } else {
+                alert('Por favor, ingrese ambas horas de ingreso y salida.');
+            }
+        }
+
+        // Función para mostrar el historial de registros
+        function mostrarHistorial() {
+            const historialLista = document.getElementById('historialLista').getElementsByTagName('tbody')[0];
+            historialLista.innerHTML = ''; // Limpiar la lista actual
+
+            registros.forEach((registro) => {
+                const row = historialLista.insertRow();
+                const cellIngreso = row.insertCell(0);
+                const cellSalida = row.insertCell(1);
+                cellIngreso.textContent = registro.ingreso;
+                cellSalida.textContent = registro.salida;
+            });
+        }
+
+        // Función para mostrar el mensaje de éxito
+        function mostrarMensajeExitoso() {
+            const mensajeExitoso = document.getElementById('mensajeExitoso');
+            mensajeExitoso.style.display = 'block'; // Mostrar el mensaje
+
+            // Ocultar el mensaje después de 3 segundos
+            setTimeout(() => {
+                mensajeExitoso.style.display = 'none';
+            }, 3000); // 3000 milisegundos = 3 segundos
+        }
+    </script>
 
 </body>
 </html>
+

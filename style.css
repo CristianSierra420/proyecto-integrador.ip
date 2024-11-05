@@ -1,112 +1,103 @@
+:root {
+    --color-negro-oscuro: #020104;  /* Negro muy oscuro */
+    --color-gris-oscuro: #22232a;  /* Gris muy oscuro */
+    --color-gris-cálido: #bebab4;  /* Gris cálido suave */
+    --color-blanco-grisáceo: #f7f7f6; /* Blanco grisáceo */
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    background-color: #F3F3F3; /* Blanco grisáceo */
-    color: #262526; /* Gris oscuro */
+    background-color: var(--color-blanco-grisáceo);
+    color: var(--color-gris-oscuro);
 }
 
-/* Encabezado fijo */
-#navbar {
-    background-color: #262526; /* Gris oscuro */
+/* Encabezado */
+.navbar {
+    background-color: var(--color-negro-oscuro);
+}
+.navbar-light .navbar-nav .nav-link {
+    color: var(--color-gris-cálido);
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--color-gris-cálido);
 }
 
-#navbar a {
-    color: #D7D8DA; /* Gris pálido */
-    text-transform: uppercase;
-    font-weight: bold;
+/* Hero Section */
+#hero {
+    background-color: var(--color-gris-oscuro);
+    padding: 100px 0;
+    color: #fff;
 }
-
-#navbar a:hover {
-    color: #AFB2B7; /* Gris claro */
+#hero h1 {
+    font-size: 3.5rem;
 }
-
-/* Sección Hero */
-.hero {
-    background: url('https://via.placeholder.com/1920x700') no-repeat center center;
-    background-size: cover;
-    height: 700px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-.hero p {
+#hero p {
     font-size: 1.25rem;
-    margin-bottom: 20px;
 }
 
 /* Sección de Servicios */
+.services {
+    background-color: var(--color-gris-cálido);
+}
 .services .card {
-    border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    background-color: #AFB2B7; /* Gris claro */
+    background-color: var(--color-blanco-grisáceo);
 }
-
 .services .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #262526; /* Gris oscuro */
+    color: var(--color-gris-oscuro);
 }
-
 .services .card-text {
-    font-size: 1rem;
-    color: #262526; /* Gris oscuro */
+    color: var(--color-gris-cálido);
 }
 
 /* Sección Acerca de Nosotros */
 .about {
-    background-color: #F3F3F3; /* Blanco grisáceo */
+    background-color: var(--color-gris-cálido);
+    color: var(--color-gris-oscuro);
 }
-
-.about h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
+.about .btn-primary {
+    background-color: var(--color-gris-oscuro);
+    border: none;
+}
+.about .btn-primary:hover {
+    background-color: var(--color-gris-cálido);
 }
 
 /* Testimonios */
 .testimonials .testimonial-card {
-    background: #FFFFFF;
+    background-color: var(--color-blanco-grisáceo);
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.testimonials .testimonial-card p {
-    font-size: 1.1rem;
-    color: #333;
-}
-
-.testimonials .testimonial-card h5 {
-    font-weight: bold;
-    color: #262526; /* Gris oscuro */
+.testimonials h5 {
+    color: var(--color-gris-cálido);
 }
 
 /* Sección de Contacto */
-.contact h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
+.contact {
+    background-color: var(--color-gris-cálido);
+}
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.contact input,
+.contact textarea {
+    background-color: var(--color-blanco-grisáceo);
+    border: 1px solid var(--color-gris-oscuro);
+}
+.contact button {
+    background-color: var(--color-gris-oscuro);
+    border: none;
+}
+.contact button:hover {
+    background-color: var(--color-gris-cálido);
 }
 
 /* Pie de página */
 .footer {
-    background-color: #262526; /* Gris oscuro */
-    color: white;
-    text-align: center;
+    background-color: var(--color-negro-oscuro);
+    color: #fff;
 }
-
-.footer p {
-    margin-bottom: 0;
-}
-
-
-
-
-

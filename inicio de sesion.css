@@ -39,8 +39,8 @@ input[type="text"]:focus, input[type="password"]:focus {
 button {
     width: 100%; /* Botón ocupa todo el ancho */
     padding: 12px; /* Espacio interno de 12 píxeles */
-    background-color: #22232a; /* Color de fondo del botón */
-    color: #020104; /* Color del texto del botón */
+    background-color: #0515aa70; /* Color de fondo del botón */
+    color: #000000; /* Color del texto del botón */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
@@ -64,7 +64,7 @@ button:active {
 }
 
 .footer a {
-    color: #020104; /* Color del enlace en el pie de página */
+    color: #000000; /* Color del enlace en el pie de página */
     text-decoration: none; /* Sin subrayado en el enlace */
 }
 

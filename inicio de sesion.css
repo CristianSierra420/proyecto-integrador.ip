@@ -1,3 +1,4 @@
+/* Estilos generales del cuerpo de la página */
 body {
     font-family: 'Arial', sans-serif; /* Tipo de letra usado en toda la página */
     background: linear-gradient(135deg, #46413b, #bebab4); /* Fondo con un degradado oscuro */
@@ -8,6 +9,7 @@ body {
     margin: 0; /* Sin márgenes en la página */
 }
 
+/* Estilo del contenedor del login */
 .login-container {
     background: linear-gradient(135deg, #bebab4, #f7f7f6); /* Fondo con degradado para el formulario */
     padding: 30px; /* Espacio interno de 30 píxeles */
@@ -17,11 +19,17 @@ body {
     text-align: center; /* Centra el texto dentro del contenedor */
 }
 
+/* Estilo del título */
+/* Estilo del título */
 h2 {
     margin-bottom: 50px; /* Espacio debajo del título */
     color: #020104; /* Color del texto del título */
+    font-family: 'Verdana', sans-serif; /* Cambié la fuente a Verdana */
+    font-weight: bold; /* Pone el texto en negrita */
 }
 
+
+/* Estilo para los campos de entrada */
 input[type="text"], input[type="password"] {
     width: 100%; /* Campos de entrada ocupan todo el ancho */
     padding: 12px; /* Espacio interno de 12 píxeles */
@@ -31,32 +39,40 @@ input[type="text"], input[type="password"] {
     transition: border 0.3s; /* Cambio suave del borde */
 }
 
+/* Estilo cuando los campos de entrada están enfocados */
 input[type="text"]:focus, input[type="password"]:focus {
     border: 1px solid #bebab4; /* Borde en color de la paleta al enfocar */
     outline: none; /* Sin contorno adicional */
 }
 
-button {
-    width: 100%; /* Botón ocupa todo el ancho */
-    padding: 12px; /* Espacio interno de 12 píxeles */
+/* Estilos del botón dentro del enlace */
+a button {
+    width: 100%; /* El botón ocupa todo el ancho del contenedor */
+    padding: 12px; /* Espacio interno del botón */
     background-color: #0515aa70; /* Color de fondo del botón */
-    color: #000000; /* Color del texto del botón */
+    color: #000000; /* Color del texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    cursor: pointer; /* Cambia el cursor cuando pasa sobre el botón */
+    font-family: 'Arial', sans-serif; /* Usa Arial para el texto del botón */
     font-weight: bold; /* Texto en negrita */
-    transition: background-color 0.3s, transform 0.2s; /* Cambios suaves para color y movimiento */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre las letras */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves para color y movimiento */
 }
 
-button:hover {
-    background-color: #22232a; /* Color al pasar el ratón */
+/* Efecto hover para el botón */
+a button:hover {
+    background-color: #22232a; /* Color de fondo al pasar el ratón */
     transform: translateY(-2px); /* Eleva el botón ligeramente */
 }
 
-button:active {
-    transform: translateY(0); /* Restablece la elevación al hacer clic */
+/* Efecto active para el botón */
+a button:active {
+    transform: translateY(0); /* Restablece la elevación cuando se hace clic */
 }
 
+/* Estilo para el pie de página */
 .footer {
     margin-top: 15px; /* Espacio arriba del pie de página */
     font-size: 14px; /* Tamaño de fuente en el pie de página */
@@ -67,4 +83,6 @@ button:active {
     color: #000000; /* Color del enlace en el pie de página */
     text-decoration: none; /* Sin subrayado en el enlace */
 }
+
+
 

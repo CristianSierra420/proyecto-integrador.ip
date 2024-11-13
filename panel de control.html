@@ -4,75 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Control</title>
-    <!-- Link a Font Awesome para los iconos -->
-    <link rel="stylesheet" href="panel de control.css"> <!-- Link al archivo CSS externo -->
+    <link rel="stylesheet" href="panel de control.css">
+
 </head>
 <body>
-
-    <!-- Contenedor principal -->
     <div class="main-container">
-        <!-- Barra lateral más grande -->
         <div class="sidebar">
             <div class="admin-icon">
                 <i class="fas fa-user-circle"></i>
                 <span>Administrador</span>
             </div>
             <h2>Panel de Control</h2>
-            <div class="sidebar-buttons">
-                <button onclick="toggleSection('capturaHoras')">
-                    <i class="fas fa-clock"></i>
-                    Captura Horas
-                </button>
-                <button onclick="toggleSection('reportes')">
-                    <i class="fas fa-chart-line"></i>
-                    Reportes
-                </button>
-                <button onclick="toggleSection('alertas')">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    Alertas
-                </button>
-                <button onclick="toggleSection('historial')">
-                    <i class="fas fa-history"></i>
-                    Historial
-                </button>
-                <div><br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br></div>
-            </div>
-            <button class="back-button">
-                <i class="fas fa-sign-out-alt"></i>
-                Regresar
-            </button>
+            <button onclick="toggleSection('capturaHoras')"><i class="fas fa-clock"></i>Captura Horas</button>
+            <button onclick="toggleSection('reportes')"><i class="fas fa-chart-line"></i>Reportes</button>
+            <button onclick="toggleSection('alertas')"><i class="fas fa-exclamation-triangle"></i>Alertas</button>
+            <button onclick="toggleSection('historial')"><i class="fas fa-history"></i>Historial</button>
+            <a href="inicio de sesion.html">
+                <button><i class="fas fa-sign-out-alt"></i>Regresar</button>
+            </a>
         </div>
 
-        <!-- Contenido principal -->
         <div class="content">
-            <!-- Recuadro de Captura de Horas -->
             <div id="capturaHoras" class="section-box">
                 <h3>Captura de Horas de Ingreso y Salida</h3>
                 <div class="hora-container">
@@ -89,21 +41,16 @@
                 <div id="mensajeExitoso">Captura de hora exitosa</div>
             </div>
 
-            <!-- Recuadro de Generación de Reportes -->
             <div id="reportes" class="section-box">
                 <h3>Generación de Reportes</h3>
                 <p>Aquí podrás generar reportes detallados basados en los registros.</p>
-                <!-- Aquí podrías agregar más contenido relacionado con los reportes -->
             </div>
 
-            <!-- Recuadro de Alertas -->
             <div id="alertas" class="section-box">
                 <h3>Alertas Importantes</h3>
                 <p>Aquí se mostrarán las alertas importantes.</p>
-                <!-- Aquí podrías agregar más contenido relacionado con las alertas -->
             </div>
 
-            <!-- Recuadro de Historial de Registros -->
             <div id="historial" class="section-box">
                 <h3>Historial de Registros</h3>
                 <table id="historialLista" class="historial-table">
@@ -114,36 +61,40 @@
                             <th>Hora de Salida</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <!-- Las filas se agregarán aquí mediante JavaScript -->
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
     </div>
 
     <script>
-        // Función para manejar el registro de horas
-        let registros = []; // Array para almacenar los registros
+        let registros = [];
+
+        function formatearFechaHoraLocal(fechaHora) {
+            const opciones = {
+                timeZone: 'America/Bogota',
+                year: 'numeric', month: '2-digit', day: '2-digit',
+                hour: '2-digit', minute: '2-digit',
+                hour12: true
+            };
+            return new Date(fechaHora).toLocaleString('es-CO', opciones);
+        }
 
         function registrarHoras() {
             const horaIngreso = document.getElementById('horaIngreso').value;
             const horaSalida = document.getElementById('horaSalida').value;
 
             if (horaIngreso && horaSalida) {
-                // Guardar el registro en el array
-                registros.push({ fecha: new Date().toLocaleDateString(), ingreso: horaIngreso, salida: horaSalida });
+                const fechaIngreso = formatearFechaHoraLocal(horaIngreso);
+                const fechaSalida = formatearFechaHoraLocal(horaSalida);
 
-                // Limpiar los inputs
+                registros.push({ fecha: new Date().toLocaleDateString('es-CO'), ingreso: fechaIngreso, salida: fechaSalida });
                 document.getElementById('horaIngreso').value = '';
                 document.getElementById('horaSalida').value = '';
 
-                // Mostrar mensaje de éxito
                 const mensajeExitoso = document.getElementById('mensajeExitoso');
                 mensajeExitoso.style.display = 'block';
                 setTimeout(() => { mensajeExitoso.style.display = 'none'; }, 3000);
-
-                // Actualizar historial
                 actualizarHistorial();
             } else {
                 alert('Por favor, ingresa ambas horas.');
@@ -152,9 +103,7 @@
 
         function actualizarHistorial() {
             const tbody = document.querySelector('#historialLista tbody');
-            tbody.innerHTML = ''; // Limpiar el contenido actual
-
-            // Agregar cada registro al historial
+            tbody.innerHTML = '';
             registros.forEach(registro => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -166,29 +115,15 @@
             });
         }
 
-        // Función para alternar secciones
         function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const content = document.querySelector('.content');
-
-            // Verificar si la sección ya está activa
-            if (section.style.display === 'none' || section.style.display === '') {
-                section.style.display = 'block'; // Muestra la sección
-                content.appendChild(section); // Mueve la sección al final del contenido
-            } else {
-                section.style.display = 'none'; // Oculta la sección
-            }
-
-            // Asegurarte de que el contenido se desplace hacia la parte inferior
-            content.scrollTop = content.scrollHeight; // Desplaza el scroll hacia abajo
+            document.querySelectorAll('.section-box').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
         }
 
-        // Ocultar secciones al cargar la página
         window.onload = () => {
-            const sections = document.querySelectorAll('.section-box');
-            sections.forEach(section => {
-                section.style.display = 'none'; // Inicialmente oculta todas las secciones
-            });
+            toggleSection('capturaHoras');
         };
     </script>
 </body>

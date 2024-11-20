@@ -6,126 +6,168 @@
     <title>Panel de Control</title>
     <link rel="stylesheet" href="css/panel de control.css">
     <link rel="shortcut icon" href="https://i.ibb.co/9rLpnPS/IMG-20240911-WA0053.jpg">
-
 </head>
 <body>
     <div class="main-container">
         <div class="sidebar">
-            <div class="admin-icon">
-                <i class="fas fa-user-circle"></i>
-                <span>Administrador</span>
+            <div class="sidebar__admin-icon">
+                <i class="sidebar__admin-icon--image fas fa-user-circle"></i>
+                <span class="sidebar__admin-icon--text">Administrador</span>
             </div>
-            <h2>Panel de Control</h2>
-            <button onclick="toggleSection('capturaHoras')"><i class="fas fa-clock"></i>Captura Horas</button>
-            <button onclick="toggleSection('reportes')"><i class="fas fa-chart-line"></i>Reportes</button>
-            <button onclick="toggleSection('alertas')"><i class="fas fa-exclamation-triangle"></i>Alertas</button>
-            <button onclick="toggleSection('historial')"><i class="fas fa-history"></i>Historial</button>
+            <h2 class="sidebar__title">Panel de Control</h2>
+            <button class="sidebar__button" onclick="toggleSection('capturaHoras')">
+                <i class="sidebar__button-icon fas fa-clock"></i>Captura Horas
+            </button>
+            <button class="sidebar__button" onclick="toggleSection('reportes')">
+                <i class="sidebar__button-icon fas fa-chart-line"></i>Reportes
+            </button>
+            <button class="sidebar__button" onclick="toggleSection('alertas')">
+                <i class="sidebar__button-icon fas fa-exclamation-triangle"></i>Alertas
+            </button>
+            <button class="sidebar__button" onclick="toggleSection('historial')">
+                <i class="sidebar__button-icon fas fa-history"></i>Historial
+            </button>
             <a href="inicio de sesion.html">
-                <button><i class="fas fa-sign-out-alt"></i>Regresar</button>
+                <button class="sidebar__button sidebar__button--logout">
+                    <i class="sidebar__button-icon fas fa-sign-out-alt"></i>Regresar
+                </button>
             </a>
         </div>
 
         <div class="content">
-            <div id="capturaHoras" class="section-box">
-                <h3>Captura de Horas de Ingreso y Salida</h3>
-                <div class="hora-container">
-                    <div class="hora-input">
-                        <label for="horaIngreso">Hora de Ingreso:</label>
-                        <input type="datetime-local" id="horaIngreso">
+            <div id="capturaHoras" class="content__section content__section--active">
+                <h3 class="content__section-title">Captura de Horas de Ingreso y Salida</h3>
+                <div class="content__hora-container">
+                    <div class="content__hora-input">
+                        <label class="content__hora-label" for="horaIngreso">Hora de Ingreso:</label>
+                        <input class="content__hora-field" type="datetime-local" id="horaIngreso">
                     </div>
-                    <div class="hora-input">
-                        <label for="horaSalida">Hora de Salida:</label>
-                        <input type="datetime-local" id="horaSalida">
+                    <div class="content__hora-input">
+                        <label class="content__hora-label" for="horaSalida">Hora de Salida:</label>
+                        <input class="content__hora-field" type="datetime-local" id="horaSalida">
                     </div>
                 </div>
-                <button class="register" onclick="registrarHoras()">Registrar Horas</button>
-                <div id="mensajeExitoso">Captura de hora exitosa</div>
+                <button class="content__register" onclick="registrarHoras()">Registrar Horas</button>
+                <div id="mensajeExitoso" class="content__mensaje">Captura de hora exitosa</div>
             </div>
 
-            <div id="reportes" class="section-box">
-                <h3>Generación de Reportes</h3>
-                <p>Aquí podrás generar reportes detallados basados en los registros.</p>
+            <div id="reportes" class="content__section">
+                <h3 class="content__section-title">Generación de Reportes</h3>
+                <p class="content__section-text">Aquí podrás generar reportes detallados basados en los registros.</p>
             </div>
 
-            <div id="alertas" class="section-box">
-                <h3>Alertas Importantes</h3>
-                <p>Aquí se mostrarán las alertas importantes.</p>
+            <div id="alertas" class="content__section">
+                <h3 class="content__section-title">Alertas Importantes</h3>
+                <p class="content__section-text">Aquí se mostrarán las alertas importantes.</p>
             </div>
 
-            <div id="historial" class="section-box">
-                <h3>Historial de Registros</h3>
-                <table id="historialLista" class="historial-table">
+            <div id="historial" class="content__section">
+                <h3 class="content__section-title">Historial de Registros</h3>
+                <table id="historialLista" class="content__historial-table">
                     <thead>
                         <tr>
-                            <th>Fecha</th>
-                            <th>Hora de Ingreso</th>
-                            <th>Hora de Salida</th>
+                            <th class="content__historial-header">Fecha</th>
+                            <th class="content__historial-header">Hora de Ingreso</th>
+                            <th class="content__historial-header">Hora de Salida</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody class="content__historial-body"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
     <script>
-        let registros = [];
+     document.addEventListener("DOMContentLoaded", () => {
+    let registros = [];
 
-        function formatearFechaHoraLocal(fechaHora) {
-            const opciones = {
-                timeZone: 'America/Bogota',
-                year: 'numeric', month: '2-digit', day: '2-digit',
-                hour: '2-digit', minute: '2-digit',
-                hour12: true
-            };
-            return new Date(fechaHora).toLocaleString('es-CO', opciones);
-        }
-
-        function registrarHoras() {
-            const horaIngreso = document.getElementById('horaIngreso').value;
-            const horaSalida = document.getElementById('horaSalida').value;
-
-            if (horaIngreso && horaSalida) {
-                const fechaIngreso = formatearFechaHoraLocal(horaIngreso);
-                const fechaSalida = formatearFechaHoraLocal(horaSalida);
-
-                registros.push({ fecha: new Date().toLocaleDateString('es-CO'), ingreso: fechaIngreso, salida: fechaSalida });
-                document.getElementById('horaIngreso').value = '';
-                document.getElementById('horaSalida').value = '';
-
-                const mensajeExitoso = document.getElementById('mensajeExitoso');
-                mensajeExitoso.style.display = 'block';
-                setTimeout(() => { mensajeExitoso.style.display = 'none'; }, 3000);
-                actualizarHistorial();
-            } else {
-                alert('Por favor, ingresa ambas horas.');
-            }
-        }
-
-        function actualizarHistorial() {
-            const tbody = document.querySelector('#historialLista tbody');
-            tbody.innerHTML = '';
-            registros.forEach(registro => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${registro.fecha}</td>
-                    <td>${registro.ingreso}</td>
-                    <td>${registro.salida}</td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-
-        function toggleSection(sectionId) {
-            document.querySelectorAll('.section-box').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-
-        window.onload = () => {
-            toggleSection('capturaHoras');
+    // Formatear fecha y hora al estilo local
+    function formatearFechaHoraLocal(fechaHora) {
+        const opciones = {
+            timeZone: 'America/Bogota',
+            year: 'numeric', 
+            month: '2-digit', 
+            day: '2-digit',
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: true
         };
+        return new Date(fechaHora).toLocaleString('es-CO', opciones);
+    }
+
+    // Registrar horas de ingreso y salida
+    function registrarHoras() {
+        const horaIngreso = document.getElementById('horaIngreso').value;
+        const horaSalida = document.getElementById('horaSalida').value;
+
+        if (horaIngreso && horaSalida) {
+            const fechaIngreso = formatearFechaHoraLocal(horaIngreso);
+            const fechaSalida = formatearFechaHoraLocal(horaSalida);
+
+            registros.push({
+                fecha: new Date().toLocaleDateString('es-CO'),
+                ingreso: fechaIngreso,
+                salida: fechaSalida
+            });
+
+            document.getElementById('horaIngreso').value = '';
+            document.getElementById('horaSalida').value = '';
+
+            const mensajeExitoso = document.getElementById('mensajeExitoso');
+            mensajeExitoso.style.display = 'block';
+            setTimeout(() => {
+                mensajeExitoso.style.display = 'none';
+            }, 3000);
+
+            actualizarHistorial();
+        } else {
+            alert('Por favor, ingresa ambas horas.');
+        }
+    }
+
+    // Actualizar tabla de historial
+    function actualizarHistorial() {
+        const tbody = document.querySelector('.content__historial-body');
+        tbody.innerHTML = ''; // Limpia el contenido previo
+
+        registros.forEach(registro => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${registro.fecha}</td>
+                <td>${registro.ingreso}</td>
+                <td>${registro.salida}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+
+    // Cambiar de sección
+    function toggleSection(sectionId) {
+        document.querySelectorAll('.content__section').forEach(section => {
+            section.classList.remove('content__section--active');
+        });
+
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.add('content__section--active');
+        }
+    }
+
+    // Inicializar evento de registro de horas
+    document.querySelector('.content__register').addEventListener('click', registrarHoras);
+
+    // Inicializar navegación de botones
+    document.querySelectorAll('.sidebar__button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const sectionId = event.currentTarget.getAttribute('onclick').match(/'(.+)'/)[1];
+            toggleSection(sectionId);
+        });
+    });
+
+    // Mostrar la sección "Captura Horas" al cargar la página
+    toggleSection('captura-horas');
+});
+
     </script>
 </body>
 </html>

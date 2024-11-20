@@ -1,5 +1,4 @@
-  /* Tus estilos CSS */
-  body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -12,56 +11,56 @@
 .main-container {
     display: flex;
     flex: 1;
-    padding: 20px; /* Espacio alrededor del contenedor */
+    padding: 20px;
 }
 
-/* Barra lateral más grande */
+/* Barra lateral */
 .sidebar {
-    width: 250px; /* Ancho del panel incrementado */
+    width: 250px;
     background-color: #22232a;
     color: white;
     height: 100%;
-    padding: 20px 15px; /* Espacio interno ajustado */
+    padding: 20px 15px;
     box-sizing: border-box;
-    border-radius: 10px; /* Esquinas redondeadas */
-    margin-right: 30px; /* Espacio a la derecha incrementado */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el recuadro */
+    border-radius: 10px;
+    margin-right: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.admin-icon {
+.sidebar__admin-icon {
     display: flex;
     align-items: center;
-    margin-bottom: 50px; /* Menos espacio */
+    margin-bottom: 50px;
     justify-content: center;
 }
 
-.admin-icon i {
-    font-size: 54px; /* Icono más pequeño */
+.sidebar__admin-icon--image {
+    font-size: 54px;
     margin-right: 10px;
 }
 
-.admin-icon span {
-    font-size: 18px; /* Texto más pequeño */
+.sidebar__admin-icon--text {
+    font-size: 18px;
     font-weight: bold;
 }
 
-.sidebar h2 {
+.sidebar__title {
     text-align: center;
     color: #f7f7f6;
     margin-bottom: 20px;
-    font-size: 20px; /* Título más pequeño */
+    font-size: 20px;
 }
 
-.sidebar button {
+.sidebar__button {
     background-color: #46413b;
     color: white;
     border: none;
-    padding: 10px 10px; /* Botones más pequeños */
+    padding: 10px 10px;
     margin: 8px 0;
     width: 100%;
     text-align: left;
     cursor: pointer;
-    font-size: 16px; /* Letra más pequeña */
+    font-size: 16px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -69,11 +68,11 @@
     transition: background-color 0.3s ease;
 }
 
-.sidebar button:hover {
+.sidebar__button:hover {
     background-color: #020104;
 }
 
-.back-button {
+.sidebar__button--logout {
     background-color: #46413b;
     color: white;
     padding: 10px 10px;
@@ -90,7 +89,7 @@
     transition: background-color 0.3s ease;
 }
 
-.back-button:hover {
+.sidebar__button--logout:hover {
     background-color: #020104;
 }
 
@@ -98,47 +97,51 @@
 .content {
     flex-grow: 1;
     padding: 20px;
-    overflow-y: auto; /* Permite el desplazamiento vertical */
+    overflow-y: auto;
     box-sizing: border-box;
-    display: flex; /* Cambiado a flex para que los elementos estén uno debajo del otro */
-    flex-direction: column; /* Coloca las secciones en una columna */
-    gap: 20px; /* Espacio entre secciones */
-    background-color: #f7f7f6; /* Color de fondo más claro */
-    border-radius: 10px; /* Esquinas redondeadas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para el recuadro */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f7f7f6;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para los recuadros de cada sección */
-.section-box {
+.content__section {
     padding: 40px;
     border-radius: 10px;
-    background-color: #bebab4; /* Color de fondo de las secciones */
-    display: none; /* Inicialmente oculto */
+    background-color: #bebab4;
+    display: none;
 }
 
-.section-box.active {
-    display: block; /* Solo se muestra la sección activa */
+.content__section--active {
+    display: block;
 }
 
-h3 {
+.content__section-title {
     color: #020104;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Estilo para los campos de captura de hora */
-.hora-container {
-    display: flex; /* Habilita el uso de flexbox */
-    gap: 50px; /* Espacio entre los inputs */
-}
-
-.hora-input {
+/* Captura de horas */
+.content__hora-container {
     display: flex;
-    flex-direction: column; /* Asegura que la etiqueta esté encima del input */
-    max-width: 300px; /* Puedes ajustar este tamaño según tus necesidades */
+    gap: 50px;
 }
 
-input[type="datetime-local"] {
+.content__hora-input {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.content__hora-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.content__hora-field {
     padding: 10px;
     font-size: 16px;
     width: 100%;
@@ -148,7 +151,7 @@ input[type="datetime-local"] {
     color: #020104;
 }
 
-.register {
+.content__register {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -161,11 +164,11 @@ input[type="datetime-local"] {
     margin-top: 20px;
 }
 
-.register:hover {
+.content__register:hover {
     background-color: #45a049;
 }
 
-#mensajeExitoso {
+.content__mensaje {
     display: none;
     padding: 10px;
     margin-top: 20px;
@@ -176,36 +179,36 @@ input[type="datetime-local"] {
     max-width: 300px;
 }
 
-/* Estilo para la tabla de historial */
-.historial-table {
+/* Historial */
+.content__historial-table {
     width: 100%;
     max-width: 600px;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.historial-table th, .historial-table td {
+.content__historial-header {
+    background-color: #46413b;
+    color: white;
     padding: 12px;
     text-align: center;
     border: 1px solid #46413b;
 }
 
-.historial-table th {
-    background-color: #46413b;
-    color: white;
+.content__historial-body td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #46413b;
+    font-size: 16px;
+    color: #020104;
 }
 
-.historial-table tr:nth-child(even) {
+.content__historial-body tr:nth-child(even) {
     background-color: #f7f7f6;
 }
 
-.historial-table tr:nth-child(odd) {
+.content__historial-body tr:nth-child(odd) {
     background-color: #bebab4;
-}
-
-.historial-table td {
-    font-size: 16px;
-    color: #020104;
 }
 
 

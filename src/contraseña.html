@@ -9,16 +9,16 @@
 </head>
 <body>
 
-<div class="container">
-  <h2>Recuperación de Contraseña</h2>
-  <p>Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+<div class="password-recovery">
+  <h2 class="password-recovery__title">Recuperación de Contraseña</h2>
+  <p class="password-recovery__description">Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
   
-  <form id="resetForm">
-    <input type="email" id="email" placeholder="Correo electrónico" required>
-    <button type="button" onclick="sendPasswordReset()">Enviar enlace</button>
+  <form class="password-recovery__form" id="resetForm">
+    <input class="password-recovery__input" type="email" id="email" placeholder="Correo electrónico" required>
+    <button class="password-recovery__button" type="button" onclick="sendPasswordReset()">Enviar enlace</button>
   </form>
   
-  <p class="message" id="message"></p>
+  <p class="password-recovery__message" id="message"></p>
 </div>
 
 <script>

@@ -6,36 +6,43 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: linear-gradient(135deg, #bebab4, #020104); /* Degradado de fondo */
-  color: #000; /* Texto en negro */
+  background: linear-gradient(135deg, #bebab4, #020104);
+  /* Degradado de fondo */
+  color: #000;
+  /* Texto en negro */
 }
 
 /* Contenedor principal del bloque */
 .password-recovery {
-  background-color: #f7f7f6; /* Fondo del contenedor */
+  background-color: #f7f7f6;
+  /* Fondo del contenedor */
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3), 
-              0px 20px 40px rgba(0, 0, 0, 0.2); /* Sombras detalladas */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3),
+    0px 20px 40px rgba(0, 0, 0, 0.2);
+  /* Sombras detalladas */
   max-width: 380px;
   text-align: center;
   transition: transform 0.3s ease;
 }
 
 .password-recovery:hover {
-  transform: scale(1.02); /* Ligero aumento al pasar el mouse */
+  transform: scale(1.02);
+  /* Ligero aumento al pasar el mouse */
 }
 
 /* Estilos del título */
 .password-recovery__title {
-  color: #000; /* Título en negro */
+  color: #000;
+  /* Título en negro */
   font-weight: bold;
   margin-bottom: 20px;
 }
 
 /* Estilos de la descripción */
 .password-recovery__description {
-  color: #000; /* Texto explicativo en negro */
+  color: #000;
+  /* Texto explicativo en negro */
   margin-bottom: 20px;
 }
 
@@ -49,16 +56,20 @@ body {
   width: 100%;
   padding: 12px;
   margin: 12px 0;
-  border: 1px solid #bebab4; /* Borde de los inputs */
+  border: 1px solid #bebab4;
+  /* Borde de los inputs */
   border-radius: 8px;
-  background-color: #f7f7f6; /* Fondo claro en inputs */
-  color: #000; /* Texto negro en inputs */
+  background-color: #f7f7f6;
+  /* Fondo claro en inputs */
+  color: #000;
+  /* Texto negro en inputs */
   font-size: 1em;
   transition: all 0.3s ease;
 }
 
 .password-recovery__input:focus {
-  border-color: #bebab4; /* Cambia el borde al enfocar */
+  border-color: #bebab4;
+  /* Cambia el borde al enfocar */
   outline: none;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -70,8 +81,10 @@ body {
   margin: 12px 0;
   border: none;
   border-radius: 8px;
-  background-color: #bebab4; /* Fondo del botón */
-  color: #000; /* Texto en negro en botón */
+  background-color: #bebab4;
+  /* Fondo del botón */
+  color: #000;
+  /* Texto en negro en botón */
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
@@ -79,17 +92,17 @@ body {
 }
 
 .password-recovery__button:hover {
-  background-color: #22232a; /* Fondo al pasar el mouse */
-  color: #f7f7f6; /* Texto al pasar el mouse */
+  background-color: #22232a;
+  /* Fondo al pasar el mouse */
+  color: #f7f7f6;
+  /* Texto al pasar el mouse */
 }
 
 /* Estilo del mensaje */
 .password-recovery__message {
-  color: #000; /* Color del mensaje */
+  color: #000;
+  /* Color del mensaje */
   font-size: 0.9em;
   margin-top: 15px;
   font-style: italic;
 }
-
-  
-  

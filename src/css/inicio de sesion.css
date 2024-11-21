@@ -1,114 +1,163 @@
 /* Estilos generales del cuerpo de la página */
 body {
-    font-family: 'Arial', sans-serif; /* Tipo de letra usado en toda la página */
-    background: linear-gradient(135deg, #46413b, #bebab4); /* Fondo con un degradado oscuro */
-    display: flex; /* Usa Flexbox para organizar elementos */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    height: 100vh; /* Altura completa de la ventana del navegador */
-    margin: 0; /* Sin márgenes en la página */
+    font-family: 'Arial', sans-serif;
+    /* Tipo de letra usado en toda la página */
+    background: linear-gradient(135deg, #46413b, #bebab4);
+    /* Fondo con un degradado oscuro */
+    display: flex;
+    /* Usa Flexbox para organizar elementos */
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    height: 100vh;
+    /* Altura completa de la ventana del navegador */
+    margin: 0;
+    /* Sin márgenes en la página */
 }
 
 /* Bloque principal */
 .login {
-    background: linear-gradient(135deg, #bebab4, #f7f7f6); /* Fondo degradado */
-    padding: 30px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 20px 40px rgba(22, 0, 143, 0.2); /* Sombra para profundidad */
-    width: 300px; /* Ancho fijo del bloque */
-    text-align: center; /* Centrado de texto */
+    background: linear-gradient(135deg, #bebab4, #f7f7f6);
+    /* Fondo degradado */
+    padding: 30px;
+    /* Espaciado interno */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 20px 40px rgba(22, 0, 143, 0.2);
+    /* Sombra para profundidad */
+    width: 300px;
+    /* Ancho fijo del bloque */
+    text-align: center;
+    /* Centrado de texto */
 }
 
 /* Título del bloque */
 .login__title {
-    margin-bottom: 50px; /* Espacio debajo del título */
-    color: #020104; /* Color del texto */
-    font-family: 'Verdana', sans-serif; /* Fuente alternativa */
-    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 50px;
+    /* Espacio debajo del título */
+    color: #020104;
+    /* Color del texto */
+    font-family: 'Verdana', sans-serif;
+    /* Fuente alternativa */
+    font-weight: bold;
+    /* Texto en negrita */
 }
 
 /* Imagen del logotipo */
 .login__logo {
     width: 200px;
     height: 180px;
-    border-radius: 10px; /* Opcional: bordes redondeados */
+    border-radius: 10px;
+    /* Opcional: bordes redondeados */
 }
 
 /* Formulario */
 .login__form {
-    margin-top: 20px; /* Espacio superior */
+    margin-top: 20px;
+    /* Espacio superior */
 }
 
 /* Etiquetas */
 .login__label {
-    display: block; /* Cada etiqueta en una línea separada */
-    margin-bottom: 8px; /* Espacio debajo de las etiquetas */
-    color: #22232a; /* Color de texto */
+    display: block;
+    /* Cada etiqueta en una línea separada */
+    margin-bottom: 8px;
+    /* Espacio debajo de las etiquetas */
+    color: #22232a;
+    /* Color de texto */
     font-weight: bold;
 }
 
 /* Campos de entrada */
 .login__input {
-    width: 100%; /* Ancho completo */
-    padding: 12px; /* Espaciado interno */
-    margin: 10px 0; /* Espacio superior e inferior */
-    border: 1px solid #ddd; /* Borde gris claro */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: border 0.3s; /* Transición suave */
+    width: 100%;
+    /* Ancho completo */
+    padding: 12px;
+    /* Espaciado interno */
+    margin: 10px 0;
+    /* Espacio superior e inferior */
+    border: 1px solid #ddd;
+    /* Borde gris claro */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: border 0.3s;
+    /* Transición suave */
 }
 
 /* Efecto al enfocar campos */
 .login__input:focus {
-    border: 1px solid #bebab4; /* Color de borde al enfocar */
-    outline: none; /* Sin contorno adicional */
+    border: 1px solid #bebab4;
+    /* Color de borde al enfocar */
+    outline: none;
+    /* Sin contorno adicional */
 }
 
 /* Botones */
 .login__button {
-    width: 100%; /* Ocupa todo el ancho */
-    padding: 12px; /* Espaciado interno */
-    background-color: #0515aa70; /* Fondo */
-    color: #000; /* Color del texto */
-    border: none; /* Sin bordes */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
-    font-family: 'Arial', sans-serif; /* Fuente */
-    font-weight: bold; /* Texto en negrita */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    letter-spacing: 1px; /* Espaciado entre letras */
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
-    margin: 10px 0; /* Espacio entre botones */
+    width: 100%;
+    /* Ocupa todo el ancho */
+    padding: 12px;
+    /* Espaciado interno */
+    background-color: #0515aa70;
+    /* Fondo */
+    color: #000;
+    /* Color del texto */
+    border: none;
+    /* Sin bordes */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el ratón */
+    font-family: 'Arial', sans-serif;
+    /* Fuente */
+    font-weight: bold;
+    /* Texto en negrita */
+    text-transform: uppercase;
+    /* Texto en mayúsculas */
+    letter-spacing: 1px;
+    /* Espaciado entre letras */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Transiciones suaves */
+    margin: 10px 0;
+    /* Espacio entre botones */
 }
 
 /* Hover en los botones */
 .login__button:hover {
-    background-color: #22232a; /* Fondo más oscuro */
-    color: #f7f7f6; /* Texto más claro */
-    transform: translateY(-2px); /* Elevar ligeramente */
+    background-color: #22232a;
+    /* Fondo más oscuro */
+    color: #f7f7f6;
+    /* Texto más claro */
+    transform: translateY(-2px);
+    /* Elevar ligeramente */
 }
 
 /* Botones activos */
 .login__button:active {
-    transform: translateY(0); /* Restablecer posición al hacer clic */
+    transform: translateY(0);
+    /* Restablecer posición al hacer clic */
 }
 
 /* Enlaces de botones */
 .login__button-link {
-    text-decoration: none; /* Sin subrayado */
+    text-decoration: none;
+    /* Sin subrayado */
 }
 
 /* Pie de página */
 .footer {
-    margin-top: 15px; /* Espaciado superior */
-    font-size: 14px; /* Tamaño de letra */
-    color: #777; /* Color del texto */
+    margin-top: 15px;
+    /* Espaciado superior */
+    font-size: 14px;
+    /* Tamaño de letra */
+    color: #777;
+    /* Color del texto */
 }
 
 .footer a {
-    color: #000; /* Color de los enlaces */
-    text-decoration: none; /* Sin subrayado */
+    color: #000;
+    /* Color de los enlaces */
+    text-decoration: none;
+    /* Sin subrayado */
 }
-
-
-
-

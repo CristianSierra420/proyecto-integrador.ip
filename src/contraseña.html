@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,48 @@
   <link rel="stylesheet" href="css/contraseña.css">
   <link rel="shortcut icon" href="https://i.ibb.co/9rLpnPS/IMG-20240911-WA0053.jpg">
 </head>
+
 <body>
 
-<div class="password-recovery">
-  <h2 class="password-recovery__title">Recuperación de Contraseña</h2>
-  <p class="password-recovery__description">Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
-  
-  <form class="password-recovery__form" id="resetForm">
-    <input class="password-recovery__input" type="email" id="email" placeholder="Correo electrónico" required>
-    <button class="password-recovery__button" type="button" onclick="sendPasswordReset()">Enviar enlace</button>
-  </form>
-  
-  <p class="password-recovery__message" id="message"></p>
-</div>
+  <div class="password-recovery">
+    <h2 class="password-recovery__title">Recuperación de Contraseña</h2>
+    <p class="password-recovery__description">Introduce tu correo electrónico y te enviaremos un enlace para restablecer
+      tu contraseña.</p>
 
-<script>
-  function sendPasswordReset() {
-    const email = document.getElementById("email").value;
-    const messageElement = document.getElementById("message");
-    
-    if (email) {
-      // Simulación de envío (Aquí es donde integras con el backend)
-      messageElement.textContent = "Si este correo está registrado, recibirás un enlace de recuperación.";
-      
-      // Aquí podrías hacer una llamada AJAX o fetch al backend para procesar la recuperación
-      // Ejemplo:
-      // fetch('/enviar-recuperacion', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email })
-      // })
-      // .then(response => response.json())
-      // .then(data => {
-      //   messageElement.textContent = data.message;
-      // });
-    } else {
-      messageElement.textContent = "Por favor, introduce un correo electrónico válido.";
+    <form class="password-recovery__form" id="resetForm">
+      <input class="password-recovery__input" type="email" id="email" placeholder="Correo electrónico" required>
+      <button class="password-recovery__button" type="button" onclick="sendPasswordReset()">Enviar enlace</button>
+    </form>
+
+    <p class="password-recovery__message" id="message"></p>
+  </div>
+
+  <script>
+    function sendPasswordReset() {
+      const email = document.getElementById("email").value;
+      const messageElement = document.getElementById("message");
+
+      if (email) {
+        // Simulación de envío (Aquí es donde integras con el backend)
+        messageElement.textContent = "Si este correo está registrado, recibirás un enlace de recuperación.";
+
+        // Aquí podrías hacer una llamada AJAX o fetch al backend para procesar la recuperación
+        // Ejemplo:
+        // fetch('/enviar-recuperacion', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ email })
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //   messageElement.textContent = data.message;
+        // });
+      } else {
+        messageElement.textContent = "Por favor, introduce un correo electrónico válido.";
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
+
 </html>

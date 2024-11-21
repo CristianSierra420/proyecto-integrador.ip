@@ -1,104 +1,158 @@
 :root {
     /* Definición de colores en variables CSS para facilitar cambios globales */
-    --color-negro-oscuro: #020104;  /* Negro muy oscuro */
-    --color-gris-oscuro: #22232a;  /* Gris muy oscuro */
-    --color-gris-cálido: #bebab4;  /* Gris cálido suave */
-    --color-blanco-grisáceo: #f7f7f6; /* Blanco grisáceo */
+    --color-negro-oscuro: #020104;
+    /* Negro muy oscuro */
+    --color-gris-oscuro: #22232a;
+    /* Gris muy oscuro */
+    --color-gris-cálido: #bebab4;
+    /* Gris cálido suave */
+    --color-blanco-grisáceo: #f7f7f6;
+    /* Blanco grisáceo */
 }
 
 /* Estilos generales para la página */
 body {
-    font-family: Arial, sans-serif; /* Fuente general */
-    background-color: var(--color-blanco-grisáceo); /* Fondo de la página en blanco grisáceo */
-    color: var(--color-gris-oscuro); /* Color del texto en gris oscuro */
+    font-family: Arial, sans-serif;
+    /* Fuente general */
+    background-color: var(--color-blanco-grisáceo);
+    /* Fondo de la página en blanco grisáceo */
+    color: var(--color-gris-oscuro);
+    /* Color del texto en gris oscuro */
 }
 
 /* Encabezado */
 .navbar {
-    background-color: var(--color-negro-oscuro); /* Fondo negro oscuro */
+    background-color: var(--color-negro-oscuro);
+    /* Fondo negro oscuro */
 }
+
 .navbar-light .navbar-nav .nav-link {
-    color: var(--color-gris-cálido); /* Color de los enlaces en gris cálido */
+    color: var(--color-gris-cálido);
+    /* Color de los enlaces en gris cálido */
 }
+
 .navbar-light .navbar-nav .nav-link:hover {
-    color: var(--color-gris-cálido); /* Color del enlace en gris cálido al pasar el cursor */
+    color: var(--color-gris-cálido);
+    /* Color del enlace en gris cálido al pasar el cursor */
 }
 
 /* Sección Hero */
 #hero {
-    background-color: var(--color-gris-oscuro); /* Fondo gris oscuro */
-    padding: 100px 0; /* Espaciado en la parte superior e inferior */
-    color: #fff; /* Texto en blanco */
+    background-color: var(--color-gris-oscuro);
+    /* Fondo gris oscuro */
+    padding: 100px 0;
+    /* Espaciado en la parte superior e inferior */
+    color: #fff;
+    /* Texto en blanco */
 }
+
 #hero h1 {
-    font-size: 3.5rem; /* Tamaño del título principal */
+    font-size: 3.5rem;
+    /* Tamaño del título principal */
 }
+
 #hero p {
-    font-size: 1.25rem; /* Tamaño del texto de párrafo */
+    font-size: 1.25rem;
+    /* Tamaño del texto de párrafo */
 }
 
 /* Sección de Servicios */
 .services {
-    background-color: var(--color-gris-cálido); /* Fondo de la sección en gris cálido */
+    background-color: var(--color-gris-cálido);
+    /* Fondo de la sección en gris cálido */
 }
+
 .services .card {
-    background-color: var(--color-blanco-grisáceo); /* Fondo de cada tarjeta en blanco grisáceo */
+    background-color: var(--color-blanco-grisáceo);
+    /* Fondo de cada tarjeta en blanco grisáceo */
 }
+
 .services .card-title {
-    color: var(--color-gris-oscuro); /* Color del título de las tarjetas */
+    color: var(--color-gris-oscuro);
+    /* Color del título de las tarjetas */
 }
+
 .services .card-text {
-    color: var(--color-gris-cálido); /* Color del texto de las tarjetas */
+    color: var(--color-gris-cálido);
+    /* Color del texto de las tarjetas */
 }
 
 /* Sección Acerca de Nosotros */
 .about {
-    background-color: var(--color-gris-cálido); /* Fondo gris cálido */
-    color: var(--color-gris-oscuro); /* Texto en gris oscuro */
+    background-color: var(--color-gris-cálido);
+    /* Fondo gris cálido */
+    color: var(--color-gris-oscuro);
+    /* Texto en gris oscuro */
 }
+
 .about .btn-primary {
-    background-color: var(--color-gris-oscuro); /* Fondo del botón primario en gris oscuro */
-    border: none; /* Sin borde */
+    background-color: var(--color-gris-oscuro);
+    /* Fondo del botón primario en gris oscuro */
+    border: none;
+    /* Sin borde */
 }
+
 .about .btn-primary:hover {
-    background-color: var(--color-gris-cálido); /* Fondo del botón al pasar el cursor */
+    background-color: var(--color-gris-cálido);
+    /* Fondo del botón al pasar el cursor */
 }
 
 /* Sección de Testimonios */
 .testimonials .testimonial-card {
-    background-color: var(--color-blanco-grisáceo); /* Fondo de la tarjeta */
-    padding: 20px; /* Relleno interno de la tarjeta */
-    margin-bottom: 20px; /* Espacio inferior */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: var(--color-blanco-grisáceo);
+    /* Fondo de la tarjeta */
+    padding: 20px;
+    /* Relleno interno de la tarjeta */
+    margin-bottom: 20px;
+    /* Espacio inferior */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
 }
+
 .testimonials h5 {
-    color: var(--color-gris-cálido); /* Color de los nombres en los testimonios */
+    color: var(--color-gris-cálido);
+    /* Color de los nombres en los testimonios */
 }
 
 /* Sección de Contacto */
 .contact {
-    background-color: var(--color-gris-cálido); /* Fondo gris cálido */
+    background-color: var(--color-gris-cálido);
+    /* Fondo gris cálido */
 }
+
 .contact form {
-    max-width: 600px; /* Ancho máximo del formulario */
-    margin: 0 auto; /* Centrado del formulario */
+    max-width: 600px;
+    /* Ancho máximo del formulario */
+    margin: 0 auto;
+    /* Centrado del formulario */
 }
+
 .contact input,
 .contact textarea {
-    background-color: var(--color-blanco-grisáceo); /* Fondo de los campos */
-    border: 1px solid var(--color-gris-oscuro); /* Borde gris oscuro */
+    background-color: var(--color-blanco-grisáceo);
+    /* Fondo de los campos */
+    border: 1px solid var(--color-gris-oscuro);
+    /* Borde gris oscuro */
 }
+
 .contact button {
-    background-color: var(--color-gris-oscuro); /* Fondo del botón */
-    border: none; /* Sin borde */
+    background-color: var(--color-gris-oscuro);
+    /* Fondo del botón */
+    border: none;
+    /* Sin borde */
 }
+
 .contact button:hover {
-    background-color: var(--color-gris-cálido); /* Cambio de color al pasar el cursor */
+    background-color: var(--color-gris-cálido);
+    /* Cambio de color al pasar el cursor */
 }
 
 /* Pie de página */
 .footer {
-    background-color: var(--color-negro-oscuro); /* Fondo negro oscuro */
-    color: #fff; /* Texto en blanco */
+    background-color: var(--color-negro-oscuro);
+    /* Fondo negro oscuro */
+    color: #fff;
+    /* Texto en blanco */
 }
